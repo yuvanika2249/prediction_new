@@ -33,6 +33,9 @@ elif select=="About":
 - 🎯 **Career Growth Insights**  
 - ⚡ **Simple & Fast Salary Estimation**  
 """)
+    st.subheader("USER DETAILS :")
+    df = pd.read_excel("D:/datalist.xlsx") 
+    st.dataframe(df)
 elif select=="Contact":
     st.title("Contact page")
 
