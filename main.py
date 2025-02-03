@@ -13,7 +13,16 @@ if select=="Home":
     st.title("Home page")
     st.header("Find Your Expected Salary Instantly!")
     st.text("Our salary prediction tool helps job seekers, employees, and recruiters estimate salaries based on key factors like job title, experience, skills, and location.")
-
+    st.subheader("Enter Your Details :")
+    username = st.text_input("Name")
+    city = st.text_input("City")
+    if st.button("Submit"):
+        res=con.cursor()
+        sql= "insert into mydata(username,city)values(%s,%s)"
+        res.execute(sql,(username,city))
+        con.commit()
+        st.success("Data insserted Succesfully")
+        
 elif select=="About":
     st.title("About page")
     st.text("Welcome to the Job Salary Prediction tool! This application helps job seekers, employers, and recruiters estimate salaries based on key factors such as :")
@@ -35,8 +44,6 @@ elif select=="How it works":
 3️⃣ **Get Your Salary Estimate** – View your predicted salary instantly.  
 4️⃣ **Explore Trends** – Compare salaries in different locations and industries.  
 """)
-if st.button("Start Now"):
-    st.subheader("Enter Your Job Details :")
-    job = st.text_input("Job Title")
+
    
 
