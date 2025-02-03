@@ -8,7 +8,7 @@ with st.sidebar:
         options=["Home","About","Contact","How it works"],
         icons=["houses","file-person","person-lines-fill","pc-display-horizontal"]
     )
-
+res=con.cursor()
 if select=="Home":
     st.title("Home page")
     st.header("Find Your Expected Salary Instantly!")
@@ -17,7 +17,7 @@ if select=="Home":
     username = st.text_input("Name")
     city = st.text_input("City")
     if st.button("Submit"):
-        res=con.cursor()
+        
         sql= "insert into mydata(username,city)values(%s,%s)"
         res.execute(sql,(username,city))
         con.commit()
